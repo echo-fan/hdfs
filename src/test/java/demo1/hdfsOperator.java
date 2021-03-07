@@ -133,6 +133,8 @@ public class hdfsOperator {
 
 
     }
+    
+    //小文件合并
     @Test
     public void mergeFile() throws Exception {
         //获取分布式的文件系统

@@ -143,7 +143,7 @@ public class hdfsOperator {
         LocalFileSystem localFileSystem = FileSystem.getLocal(new Configuration());
         //通过本地文件系统，遍历本地所有的小文件
         FileStatus[] fileStatuses = localFileSystem.listStatus(new Path("file:///E:\\test"));
-        //遍历小文件
+        //遍历小文件,得到文件path，使用本地文件系统的实例的open的方法，将path转为输入流
         for (FileStatus fileStatus:fileStatuses){
             Path path = fileStatus.getPath();
             FSDataInputStream dataInputStream = localFileSystem.open(path);
@@ -151,5 +151,7 @@ public class hdfsOperator {
             IOUtils.closeQuietly(dataInputStream);
         }
         fsDataOutputStream.close();
+        localFileSystem.close();
+        fileSystem.close();
     }
 }

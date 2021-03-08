@@ -139,7 +139,7 @@ public class hdfsOperator {
     public void mergeFile() throws Exception {
         //获取分布式的文件系统
         FileSystem fileSystem = FileSystem.newInstance(new URI("hdfs://hadoop11:8020"), new Configuration(),"root");
-        //获取hdfs文件上面的输出流
+        //获取hdfs文件上面的输出流，
         FSDataOutputStream fsDataOutputStream = fileSystem.create(new Path("hdfs://hadoop11:8020/bigfile.xml"));
         //通过本地文件系统，遍历小文件，将每一个小文件读成一个输入流
         LocalFileSystem localFileSystem = FileSystem.getLocal(new Configuration());
